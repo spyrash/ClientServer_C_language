@@ -40,7 +40,7 @@ int main() {
         }
     };
 
-    while (1 == 1) {
+    while (1) {
         char buffer[256] = { 0 };
 		// it waits for one of a set of file
 		// descriptors to become ready to perform I/O

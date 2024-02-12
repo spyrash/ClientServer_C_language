@@ -19,10 +19,6 @@ int main() {
         0
     };
 	
-	bind(socketfd, &socketAddress, sizeof(socketAddress));
-	
-	// mark the socketfd in order to accept incoming connection using accept( by the server)
-	listen(socketfd, 100);
 	// accept the connection, and return the file descriptor of the accepted connection
 	int acceptedfd = accept(socketfd, 0, 0);
 	
@@ -40,7 +36,7 @@ int main() {
         }
     };
     
-    while (1 == 1) {
+    while (1) {
     char buffer[256] = {0};
     // it waits for one of a set of file
     // descriptors to become ready to perform I/O
