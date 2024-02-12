@@ -43,13 +43,12 @@ int main() {
     
     // POLLIN => There is data to read.
     if (fds[0].revents & POLLIN) {
-		read(socketfd, buffer, 255);
-		send(socketfd, buffer, 255, 0);
-	}
-	else if (fds[1].revents & POLLIN) {
-		if (0 == recv(socketfd, buffer, 255, 0)) {
-			return 0;
-			}
+            read(0, buffer, 255);
+            send(socketfd, buffer, 255, 0);
+        } else if (fds[1].revents & POLLIN) {
+            if (recv(socketfd, buffer, 255, 0) == 0) {
+                return 0;
+            }
 
             printf("%s\n", buffer);
 		}

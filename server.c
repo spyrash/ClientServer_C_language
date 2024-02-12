@@ -50,7 +50,7 @@ int main() {
             read(0, buffer, 255);
             send(acceptedfd, buffer, 255, 0);
         } else if (fds[1].revents & POLLIN) {
-            if (0 == recv(acceptedfd, buffer, 255, 0)) {
+            if (recv(acceptedfd, buffer, 255, 0) == 0) {
                 return 0;
             }
 
