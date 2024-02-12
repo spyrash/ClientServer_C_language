@@ -19,8 +19,7 @@ int main() {
         0
     };
 	
-	// accept the connection, and return the file descriptor of the accepted connection
-	int acceptedfd = accept(socketfd, 0, 0);
+	connect(socketfd, &socketAddress, sizeof(socketAddress));
 	
 	// create two structure for poll
     struct pollfd fds[2] = {
@@ -44,8 +43,8 @@ int main() {
     
     // POLLIN => There is data to read.
     if (fds[0].revents & POLLIN) {
-		read(0, buffer, 255);
-		send(acceptedfd, buffer, 255, 0);
+		read(socketfd, buffer, 255);
+		send(socketfd, buffer, 255, 0);
 	}
 	else if (fds[1].revents & POLLIN) {
 		if (0 == recv(socketfd, buffer, 255, 0)) {
