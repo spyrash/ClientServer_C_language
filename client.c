@@ -40,7 +40,7 @@ int main() {
         }
     };
     
-    while (true) {
+    while (1 == 1) {
     char buffer[256] = {0};
     // it waits for one of a set of file
     // descriptors to become ready to perform I/O
@@ -51,8 +51,7 @@ int main() {
 		read(0, buffer, 255);
 		send(acceptedfd, buffer, 255, 0);
 	}
-	
-	if (fds[1].revents & POLLIN) {
+	else if (fds[1].revents & POLLIN) {
 		if (0 == recv(socketfd, buffer, 255, 0)) {
 			return 0;
 			}
